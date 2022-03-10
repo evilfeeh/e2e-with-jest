@@ -7,13 +7,14 @@
   "scripts": {
     "start": "node ./src/index.js",
     "start-dev": "nodemon ./src/index.js",
-    "test": "set NODE_OPTIONS=--experimental-vm-modules && jest --watch-all"
+    "test": "set NODE_OPTIONS=--experimental-vm-modules --no-warn && npx jest --watch-all"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
     "jest": "^27.5.1",
-    "nodemon": "^2.0.15"
+    "nodemon": "^2.0.15",
+    "supertest": "^6.2.2"
   }
 }

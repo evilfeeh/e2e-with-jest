@@ -30,5 +30,14 @@ describe('API TEST E2E', () => {
 
         expect(sut.text).toStrictEqual(expected)
     })
-    test.todo('/delete - test delete router')
+
+    test('/DELETE - Should delete database', async () => {
+        await insertData()
+        await superTest(server).delete('/')
+        const getedData = await getData()
+        const data = JSON.parse(getedData.text)
+
+        expect(data).toBeInstanceOf(Array)
+        expect(data.length).toEqual(0)
+    })
 })

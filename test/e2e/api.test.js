@@ -2,6 +2,19 @@ import { jest, describe, expect, test } from "@jest/globals"
 import superTest from 'supertest'
 import server from '../../src/server.js'
 
+const insertData = async () => {
+    return await superTest(server)
+        .post('/')
+        .send({
+            nome: 'teste testing',
+            age: 30
+        })
+}
+
+const getData = async () => {
+    return await superTest(server).get('/')
+}
+
 describe('API TEST E2E', () => {
     test('/GET - Should return an array', async () => {
         const response = await superTest(server).get('/')
